@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #required parameters
 str_echo=$1
