@@ -1,0 +1,12 @@
+name: helloworld_workflow
+
+on: [push, workflow_dispatch]
+
+jobs:
+  say_hello_job:
+    runs-on: [self-hosted]
+    steps:
+    - name: hello world actions
+      uses: u0324020/actions-helloword@v1.0
+      with:
+        strecho: helloworld
