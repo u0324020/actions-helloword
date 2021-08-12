@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: hello world actions
-      uses: u0324020/actions-helloword@v1.0.3
+      uses: u0324020/actions-helloword@v1.0.0
       with:
         strecho: helloworld
