@@ -1,4 +1,4 @@
-name: Hello World # [Required]
+name: Jane Hello World Action # [Required]
 author: jane-yc-chen
 description: print hello world for testing self-actions # [Required]
 inputs: # [Optional]
