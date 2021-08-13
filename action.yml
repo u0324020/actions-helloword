@@ -1,6 +1,9 @@
 name: Jane Hello World Action # [Required]
 author: jane-yc-chen
 description: print hello world for testing self-actions # [Required]
+branding:
+  icon: 'activity'  
+  color: 'purple'
 inputs: # [Optional]
   strecho: # [Required] # in dockerfile using INPUT_STRECHO
     description: 'print string' # [Required]
