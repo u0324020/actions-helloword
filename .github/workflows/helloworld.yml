@@ -10,7 +10,7 @@ jobs:
       with:
         github-token: ${{ github.token }}
         webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        environment: dev &#x1F451 # won't be included in the card if none
+        environment: dev # won't be included in the card if none
         timezone: Asia/Taipei
         view-status-action-text: View in Actions
         review-diffs-action-text: Review Commit Diffs
