@@ -6,20 +6,30 @@ jobs:
   say_hello_job:
     runs-on: ubuntu-latest
     steps:
-    - uses: toko-bifrost/ms-teams-deploy-card@master
+    - name: Send a message to Microsoft Teams
+      uses: aliencube/microsoft-teams-actions@v0.8.0
       with:
-        github-token: ${{ github.token }}
-        webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        custom-facts: |
-          - name: Custom Fact Name 1
-            value: Custom Fact Value 1
-          - name: Pull Request
-            value: "http://example.com/${{ github.run_id }}"
-        custom-actions: |
-          - text: View PR
-            url: "http://valid.uri.com"
-          - text: View CI
-            url: "http://example.com/${{ github.run_id }}"
+        webhook_uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        title: Soter Deploy ${{ github.run_id }}
+        summary: version ${{ github.run_id }}
+        text: deploy to env v${{ github.run_id }}
+        theme_color: red
+        sections: '[{ "activityTitle": "hello world" }, { ... }]'
+        actions: '[{ "@type": "OpenUri", "name": "lorem ipsum", "targets": [{ "os": "default", "uri": "https://localhost" }] }, { ... }]'
+#     - uses: toko-bifrost/ms-teams-deploy-card@master
+#       with:
+#         github-token: ${{ github.token }}
+#         webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+#         custom-facts: |
+#           - name: Custom Fact Name 1
+#             value: Custom Fact Value 1
+#           - name: Pull Request
+#             value: "http://example.com/${{ github.run_id }}"
+#         custom-actions: |
+#           - text: View PR
+#             url: "http://valid.uri.com"
+#           - text: View CI
+#             url: "http://example.com/${{ github.run_id }}"
         
     - name: hello world actions
       uses: u0324020/actions-helloword@v1.0.0
