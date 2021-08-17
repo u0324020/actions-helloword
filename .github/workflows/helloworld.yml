@@ -24,7 +24,6 @@ jobs:
             url: "http://example.com/${{ github.run_id }}"
           - text: View Actions
             url: "http://example.com/${{ github.run_id }}"
-        show-on-start: Start...
         
         
     - name: hello world actions
