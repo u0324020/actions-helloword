@@ -10,21 +10,12 @@ jobs:
       with:
         github-token: ${{ github.token }}
         webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        environment: stg # won't be included in the card if none
+        environment: dev # won't be included in the card if none
         timezone: Asia/Taipei
         custom-facts: |
-          - name: Repo
-            value: ${{ github.repository }}
-          - name: Commit #
+          - name: 'Commit#'
             value: ${{ github.sha }}
-          - name: Branch
-            value: ${{ github.ref }}
-        custom-actions: |
-          - text: PR${{ github.run_id }}
-            url: "http://example.com/${{ github.run_id }}"
-          - text: View Actions
-            url: "http://example.com/${{ github.run_id }}"
-        
+        view-status-action-text: View in Actions
         
     - name: hello world actions
       uses: u0324020/actions-helloword@v1.0.0
