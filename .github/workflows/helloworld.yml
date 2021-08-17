@@ -14,11 +14,11 @@ jobs:
         timezone: Asia/Taipei
         custom-facts: |
           - name: Repo
-            value: ${{ GITHUB_REPOSITORY }}
+            value: ${{ github.repository }}
           - name: Commit #
-            value: ${{ GITHUB_SHA }}
+            value: ${{ github.sha }}
           - name: Branch
-            value: ${{ GITHUB_REF }}
+            value: ${{ github.ref }}
         custom-actions: |
           - text: PR${{ github.run_id }}
             url: "http://example.com/${{ github.run_id }}"
