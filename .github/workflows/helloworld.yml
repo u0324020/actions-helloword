@@ -6,12 +6,20 @@ jobs:
   say_hello_job:
     runs-on: ubuntu-latest
     steps:
-    - uses: toko-bifrost/ms-teams-deploy-card@master #  or "./" if in a local set-up
-      if: always()
+    - uses: toko-bifrost/ms-teams-deploy-card@master
       with:
         github-token: ${{ github.token }}
         webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        card-layout-start: cozy
+        custom-facts: |
+          - name: Custom Fact Name 1
+            value: Custom Fact Value 1
+          - name: Pull Request
+            value: "http://example.com/${{ github.run_id }}"
+        custom-actions: |
+          - text: View PR
+            url: "http://valid.uri.com"
+          - text: View CI
+            url: "http://example.com/${{ github.run_id }}"
         
     - name: hello world actions
       uses: u0324020/actions-helloword@v1.0.0
