@@ -12,10 +12,8 @@ jobs:
         webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
         environment: dev # won't be included in the card if none
         timezone: Asia/Taipei
-        custom-facts: |
-          - name: 'Commit#'
-            value: ${{ github.sha }}
         view-status-action-text: View in Actions
+        review-diffs-action-text: Review Commit Diffs
         
     - name: hello world actions
       uses: u0324020/actions-helloword@v1.0.0
