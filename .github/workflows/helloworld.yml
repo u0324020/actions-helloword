@@ -6,11 +6,22 @@ jobs:
   say_hello_job:
     runs-on: ubuntu-latest
     steps:
-    - name: Send message to ms teams
-      uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
-      with:
-        webhook: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        message: 'W00t it werked!'
+
+      - name: Microsoft Teams Notification
+        uses: skitionek/notify-microsoft-teams@master
+        if: always()
+        with:
+          webhook_url: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          needs: ${{ toJson(needs) }}
+          job: ${{ toJson(job) }}
+          steps: ${{ toJson(steps) }}
+          dry_run: True
+#     - name: Send message to ms teams
+#       uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
+#       with:
+#         webhook: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+#         message: 'W00t it werked!'
+        
 #     - uses: toko-bifrost/ms-teams-deploy-card@3.1.2
 #       with:
 #         github-token: ${{ secrets.GIT_TOKEN }}
