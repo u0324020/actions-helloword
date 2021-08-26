@@ -6,7 +6,7 @@ jobs:
   say_hello_job:
     runs-on: ubuntu-latest
     steps:
-
+    - run: echo ${{ github.run_id }}
     - name: Microsoft Teams Notification
       uses: skitionek/notify-microsoft-teams@master
       if: always()
