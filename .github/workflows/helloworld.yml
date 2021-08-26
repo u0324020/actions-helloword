@@ -6,14 +6,19 @@ jobs:
   say_hello_job:
     runs-on: ubuntu-latest
     steps:
-    - uses: toko-bifrost/ms-teams-deploy-card@3.1.2
+    - name: Send message to ms teams
+      uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
       with:
-        github-token: ${{ secrets.GIT_TOKEN }}
-        webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        environment: dev # won't be included in the card if none
-        timezone: Asia/Taipei
-        view-status-action-text: View in Actions
-        review-diffs-action-text: Review Commit Diffs
+        webhook: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        message: 'W00t it werked!'
+#     - uses: toko-bifrost/ms-teams-deploy-card@3.1.2
+#       with:
+#         github-token: ${{ secrets.GIT_TOKEN }}
+#         webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+#         environment: dev # won't be included in the card if none
+#         timezone: Asia/Taipei
+#         view-status-action-text: View in Actions
+#         review-diffs-action-text: Review Commit Diffs
         
     - name: hello world actions
       uses: u0324020/actions-helloword@v1.0.0
