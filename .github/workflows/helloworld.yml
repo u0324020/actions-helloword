@@ -12,10 +12,12 @@ jobs:
       if: always()
       with:
         webhook_url: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        needs: ${{ toJson(needs) }}
-        job: ${{ toJson(job) }}
-        steps: ${{ toJson(steps) }}
-        dry_run: True
+        raw: >-
+          {
+            "@type": "MessageCard",
+            "@context": "http://schema.org/extensions",
+            "title": "No ${variables} avaliable in here"
+          }
 #     - name: Send message to ms teams
 #       uses: dhollerbach/github-action-send-message-to-ms-teams@1.0.10
 #       with:
